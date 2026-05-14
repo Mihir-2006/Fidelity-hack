@@ -1,3 +1,4 @@
+import { useTracking } from "../context/TrackingContext"
 const plans = [
   {
     title: "SIP Investment",
@@ -30,13 +31,8 @@ const plans = [
 ]
 
 const Plans = () => {
-    const handleTracking = (action, plan) => {
-  console.log({
-    action,
-    plan,
-    timestamp: new Date().toLocaleString(),
-  })
-}
+    const { trackEvent } = useTracking()
+    
   return (
     <section className="bg-black text-white px-8 py-24">
 
@@ -83,13 +79,13 @@ const Plans = () => {
             <div className="flex gap-4">
 
               <button
-              onClick={() => handleTracking("Invest Clicked", plan.title)}
+              onClick={() => trackEvent("Invest Clicked", plan.title)}
               className="bg-blue-600 hover:bg-blue-500 transition duration-300 hover:scale-105 px-5 py-3 rounded-xl font-semibold">
               Invest Now
             </button>
 
               <button
-              onClick={() => handleTracking("Compare Clicked", plan.title)}
+              onClick={() => trackEvent("Compare Clicked", plan.title)}
                 className="border border-gray-700 hover:border-blue-500 px-5 py-3 rounded-xl font-semibold"
                 >
                Compare

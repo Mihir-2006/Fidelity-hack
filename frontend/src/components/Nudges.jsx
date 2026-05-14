@@ -1,6 +1,8 @@
+import { useTracking } from "../context/TrackingContext"
 const Nudges = () => {
+    const { events } = useTracking()
   return (
-    <section className="bg-black text-white px-8 py-24">
+    <section className="bg-black text-white px-8 py-10">
 
       <div className="text-center mb-16">
 
@@ -97,6 +99,7 @@ const Nudges = () => {
         </div>
 
       </div>
+      
 
     </section>
   )
